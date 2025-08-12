@@ -8,7 +8,7 @@ import lombok.Data;
 public class ACHFileRequest {
     private String immediateDestination;
     private String immediateOrigin;
-    private String fileIdModifier;
+    
     private String destinationName;
     private String originName;
     private String financialInstitutionName;

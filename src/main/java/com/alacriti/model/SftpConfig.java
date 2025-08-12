@@ -10,7 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "sftp_config")
+@Table(name = "sftp_config_tbl")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
