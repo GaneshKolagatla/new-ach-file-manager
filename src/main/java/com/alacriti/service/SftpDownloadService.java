@@ -2,14 +2,19 @@ package com.alacriti.service;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.OutputStream;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Properties;
+import java.util.Vector;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.alacriti.component.PGPDecryptor;
 import com.alacriti.model.SftpConfig;
 import com.alacriti.repo.SftpConfigRepo;
 import com.jcraft.jsch.Channel;
@@ -25,7 +30,16 @@ public class SftpDownloadService {
 	@Autowired
 	private SftpConfigRepo sftpConfigRepository;
 
-	public void downloadFile(String clientKey, String fileName, File destinationFile) throws Exception {
+	@Autowired
+	private PGPDecryptor pgpDecryptor;
+
+	/**
+	 * Downloads all files containing today's date from SFTP,
+	 * then decrypts them into .ach files.
+	 */
+	public void downloadAndDecryptByDate(String clientKey, String downloadPath, InputStream privateKeyStream,
+			String passphrase) throws Exception {
+
 		SftpConfig config = sftpConfigRepository.findByClientKey(clientKey)
 				.orElseThrow(() -> new RuntimeException("No SFTP config found for clientKey: " + clientKey));
 
@@ -52,9 +66,36 @@ public class SftpDownloadService {
 			sftpChannel.cd(config.getRemoteDirectory());
 			logger.info("Changed to remote directory: {}", config.getRemoteDirectory());
 
-			try (OutputStream outputStream = new FileOutputStream(destinationFile)) {
-				sftpChannel.get(fileName, outputStream);
-				logger.info("File downloaded: {} to {}", fileName, destinationFile.getAbsolutePath());
+			String today = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+			logger.info("Looking for files containing date: {}", today);
+
+			Vector<ChannelSftp.LsEntry> files = sftpChannel.ls(".");
+			File downloadDir = new File(downloadPath);
+			if (!downloadDir.exists()) {
+				downloadDir.mkdirs();
+			}
+
+			boolean fileFound = false;
+
+			for (ChannelSftp.LsEntry entry : files) {
+				String fileName = entry.getFilename();
+				if (fileName.contains(today)) {
+					fileFound = true;
+					File destinationFile = new File(downloadDir, fileName);
+					try (OutputStream outputStream = new FileOutputStream(destinationFile)) {
+						sftpChannel.get(fileName, outputStream);
+						logger.info("File downloaded: {} -> {}", fileName, destinationFile.getAbsolutePath());
+					}
+				}
+			}
+
+			if (!fileFound) {
+				logger.warn("No files found containing date {} in directory {}", today, config.getRemoteDirectory());
+			} else {
+				// Call decryptor on downloaded folder
+				logger.info("Starting decryption of downloaded files...");
+				pgpDecryptor.decryptAllFiles(downloadDir, privateKeyStream, passphrase);
+				logger.info("Decryption process completed for all files.");
 			}
 
 		} finally {
