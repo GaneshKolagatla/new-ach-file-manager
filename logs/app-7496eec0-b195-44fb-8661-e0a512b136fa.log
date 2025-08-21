@@ -1,0 +1,54 @@
+2025-08-20 14:02:51 [main] INFO  c.a.AlacritiAchGeneratorApplication - Starting AlacritiAchGeneratorApplication using Java 21.0.7 with PID 18863 (/home/vatsalyas/Documents/Spring-Boot/new-ach-file-manager/target/classes started by vatsalyas in /home/vatsalyas/Documents/Spring-Boot/new-ach-file-manager)
+2025-08-20 14:02:51 [main] DEBUG c.a.AlacritiAchGeneratorApplication - Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-08-20 14:02:51 [main] INFO  c.a.AlacritiAchGeneratorApplication - No active profile set, falling back to 1 default profile: "default"
+2025-08-20 14:02:52 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-20 14:02:52 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 81 ms. Found 7 JPA repository interfaces.
+2025-08-20 14:02:52 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-08-20 14:02:52 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-20 14:02:52 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-20 14:02:52 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-20 14:02:52 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1767 ms
+2025-08-20 14:02:53 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-20 14:02:53 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-20 14:02:53 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-20 14:02:53 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-20 14:02:53 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-20 14:02:54 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@586737ff
+2025-08-20 14:02:54 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-20 14:02:54 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-20 14:02:54 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-20 14:02:56 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-20 14:02:56 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-20 14:02:57 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-20 14:02:57 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-08-20 14:02:57 [main] INFO  c.a.AlacritiAchGeneratorApplication - Started AlacritiAchGeneratorApplication in 7.602 seconds (process running for 8.358)
+2025-08-20 14:03:06 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-20 14:03:06 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-20 14:03:06 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-08-20 14:03:06 [http-nio-8080-exec-1] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2025-08-20 14:03:12 [http-nio-8080-exec-3] INFO  c.a.service.SftpDownloadService - Connecting to SFTP for clientKey: client_real
+2025-08-20 14:03:14 [http-nio-8080-exec-3] INFO  c.a.service.SftpDownloadService - SFTP session connected for clientKey: client_real
+2025-08-20 14:03:15 [http-nio-8080-exec-3] INFO  c.a.service.SftpDownloadService - Changed to remote directory: /test
+2025-08-20 14:03:15 [http-nio-8080-exec-3] INFO  c.a.service.SftpDownloadService - Looking for files containing date: 20250820
+2025-08-20 14:03:16 [http-nio-8080-exec-3] INFO  c.a.service.SftpDownloadService - File downloaded: BankofAmerica_987654320_20250820.ach.pgp -> /home/vatsalyas/Documents/Spring-Boot/new-ach-file-manager/target/download-ach/BankofAmerica_987654320_20250820.ach.pgp
+2025-08-20 14:03:17 [http-nio-8080-exec-3] INFO  c.a.service.SftpDownloadService - File downloaded: Citibank_987654322_20250820.ach.pgp -> /home/vatsalyas/Documents/Spring-Boot/new-ach-file-manager/target/download-ach/Citibank_987654322_20250820.ach.pgp
+2025-08-20 14:03:18 [http-nio-8080-exec-3] INFO  c.a.service.SftpDownloadService - File downloaded: WellsFargo_987654321_20250820.ach.pgp -> /home/vatsalyas/Documents/Spring-Boot/new-ach-file-manager/target/download-ach/WellsFargo_987654321_20250820.ach.pgp
+2025-08-20 14:03:18 [http-nio-8080-exec-3] INFO  c.a.service.SftpDownloadService - Starting decryption of downloaded files...
+2025-08-20 14:03:18 [http-nio-8080-exec-3] INFO  com.alacriti.component.PGPDecryptor - Decrypting file: WellsFargo_987654321_20250820.ach.pgp -> WellsFargo_987654321_20250820.ach
+2025-08-20 14:03:19 [http-nio-8080-exec-3] INFO  com.alacriti.component.PGPDecryptor - Decryption completed: /home/vatsalyas/Documents/Spring-Boot/new-ach-file-manager/target/download-ach/WellsFargo_987654321_20250820.ach
+2025-08-20 14:03:19 [http-nio-8080-exec-3] INFO  com.alacriti.component.PGPDecryptor - Decrypting file: BankofAmerica_987654320_20250820.ach.pgp -> BankofAmerica_987654320_20250820.ach
+2025-08-20 14:03:19 [http-nio-8080-exec-3] INFO  c.a.service.SftpDownloadService - SFTP channel exited.
+2025-08-20 14:03:19 [http-nio-8080-exec-3] INFO  c.a.service.SftpDownloadService - SFTP session disconnected.
+2025-08-20 14:41:43 [RMI TCP Connection(42)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2025-08-20 14:41:43 [RMI TCP Connection(42)-127.0.0.1] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-20 14:41:43 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-08-20 14:41:43 [RMI TCP Connection(42)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-20 14:41:43 [RMI TCP Connection(42)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-20 14:41:43 [RMI TCP Connection(42)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

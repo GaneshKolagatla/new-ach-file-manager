@@ -1,0 +1,83 @@
+2025-08-21 11:06:52 [main] INFO  c.a.AlacritiAchGeneratorApplication - Starting AlacritiAchGeneratorApplication using Java 21.0.7 with PID 12900 (/home/vatsalyas/Documents/Spring-Boot/new-ach-file-manager/target/classes started by vatsalyas in /home/vatsalyas/Documents/Spring-Boot/new-ach-file-manager)
+2025-08-21 11:06:52 [main] DEBUG c.a.AlacritiAchGeneratorApplication - Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-08-21 11:06:52 [main] INFO  c.a.AlacritiAchGeneratorApplication - No active profile set, falling back to 1 default profile: "default"
+2025-08-21 11:06:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-21 11:06:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 90 ms. Found 7 JPA repository interfaces.
+2025-08-21 11:06:54 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-08-21 11:06:54 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-21 11:06:54 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-21 11:06:54 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-21 11:06:54 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1786 ms
+2025-08-21 11:06:54 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-21 11:06:55 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-21 11:06:55 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-21 11:06:55 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-21 11:06:55 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-21 11:06:56 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1c90029b
+2025-08-21 11:06:56 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-21 11:06:56 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-21 11:06:56 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-21 11:06:57 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-21 11:06:58 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21 11:06:58 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-21 11:06:59 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-08-21 11:06:59 [main] INFO  c.a.AlacritiAchGeneratorApplication - Started AlacritiAchGeneratorApplication in 6.867 seconds (process running for 7.802)
+2025-08-21 11:07:06 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-21 11:07:06 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-21 11:07:06 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-08-21 11:07:06 [http-nio-8080-exec-1] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2025-08-21 11:07:12 [http-nio-8080-exec-2] INFO  c.a.service.SftpDownloadService - ⬇️ File downloaded from SFTP: BankofAmerica_876543210_20250821.ach.pgp
+2025-08-21 11:07:13 [http-nio-8080-exec-2] INFO  c.a.service.SftpDownloadService - ⬇️ File downloaded from SFTP: WellsFargo_765432109_20250821.ach.pgp
+2025-08-21 11:07:13 [http-nio-8080-exec-2] INFO  c.a.service.SftpDownloadService - ⬇️ Downloaded: BankofAmerica_876543210_20250821.ach.pgp
+2025-08-21 11:07:14 [http-nio-8080-exec-2] INFO  c.a.service.SftpDownloadService - ✅ Successfully decrypted: /home/vatsalyas/Documents/Spring-Boot/new-ach-file-manager/target/decrypted-ach/BankofAmerica_876543210_20250821.ach
+2025-08-21 11:07:14 [http-nio-8080-exec-2] INFO  c.a.service.SftpDownloadService - ⬇️ Downloaded: WellsFargo_765432109_20250821.ach.pgp
+2025-08-21 11:07:15 [http-nio-8080-exec-2] INFO  c.a.service.SftpDownloadService - ✅ Successfully decrypted: /home/vatsalyas/Documents/Spring-Boot/new-ach-file-manager/target/decrypted-ach/WellsFargo_765432109_20250821.ach
+2025-08-21 11:07:15 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved FileHeader (id=13) at line 1
+2025-08-21 11:07:15 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved BatchHeader (id=35) at line 2
+2025-08-21 11:07:15 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved EntryDetail (id=151) at line 3
+2025-08-21 11:07:15 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved EntryDetail (id=152) at line 4
+2025-08-21 11:07:15 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved EntryDetail (id=153) at line 5
+2025-08-21 11:07:15 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved EntryDetail (id=154) at line 6
+2025-08-21 11:07:15 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Line 7 unknown record type '8'
+2025-08-21 11:07:15 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved BatchHeader (id=36) at line 8
+2025-08-21 11:07:15 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved EntryDetail (id=155) at line 9
+2025-08-21 11:07:15 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved EntryDetail (id=156) at line 10
+2025-08-21 11:07:15 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved EntryDetail (id=157) at line 11
+2025-08-21 11:07:16 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved EntryDetail (id=158) at line 12
+2025-08-21 11:07:16 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Line 13 unknown record type '8'
+2025-08-21 11:07:16 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved BatchHeader (id=37) at line 14
+2025-08-21 11:07:16 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved EntryDetail (id=159) at line 15
+2025-08-21 11:07:16 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved EntryDetail (id=160) at line 16
+2025-08-21 11:07:16 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved EntryDetail (id=161) at line 17
+2025-08-21 11:07:16 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved EntryDetail (id=162) at line 18
+2025-08-21 11:07:16 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Line 19 unknown record type '8'
+2025-08-21 11:07:16 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved BatchHeader (id=38) at line 20
+2025-08-21 11:07:16 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved EntryDetail (id=163) at line 21
+2025-08-21 11:07:16 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved EntryDetail (id=164) at line 22
+2025-08-21 11:07:16 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved EntryDetail (id=165) at line 23
+2025-08-21 11:07:16 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved EntryDetail (id=166) at line 24
+2025-08-21 11:07:16 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Line 25 unknown record type '8'
+2025-08-21 11:07:16 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Saved FileSummary (id=9) at line 26
+2025-08-21 11:07:16 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Skipping padding line 27 for record type 9
+2025-08-21 11:07:16 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Skipping padding line 28 for record type 9
+2025-08-21 11:07:16 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Skipping padding line 29 for record type 9
+2025-08-21 11:07:16 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Skipping padding line 30 for record type 9
+2025-08-21 11:07:16 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Parsing summary for WellsFargo_765432109_20250821.ach: FileHeaders=1, BatchHeaders=4, EntryDetails=16
+2025-08-21 11:07:16 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Starting ACH parsing for file: /home/vatsalyas/Documents/Spring-Boot/new-ach-file-manager/target/decrypted-ach/WellsFargo_765432109_20250821.ach (size: 2850 bytes)
+2025-08-21 11:07:16 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - 🔍 Starting ACH file validation...
+2025-08-21 11:07:16 [http-nio-8080-exec-2] ERROR c.a.service.BatchDataValidatorImpl - Validation failed: ACHFile is null
+2025-08-21 11:07:16 [http-nio-8080-exec-2] ERROR c.a.service.ACHFileProcessorService - Validation failed for file: WellsFargo_765432109_20250821.ach -> ACHFile is null
+2025-08-21 11:07:16 [http-nio-8080-exec-2] ERROR c.alacriti.controller.ACHController - Download/Decryption/Parsing failed: ACHFile is null
+2025-08-21 11:28:55 [RMI TCP Connection(24)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2025-08-21 11:28:55 [RMI TCP Connection(24)-127.0.0.1] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-21 11:28:55 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-08-21 11:28:55 [RMI TCP Connection(24)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21 11:28:55 [RMI TCP Connection(24)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-21 11:28:55 [RMI TCP Connection(24)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

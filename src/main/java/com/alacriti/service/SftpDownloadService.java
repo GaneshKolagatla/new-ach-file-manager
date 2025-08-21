@@ -3,110 +3,105 @@ package com.alacriti.service;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Properties;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
-import com.alacriti.component.PGPDecryptor;
 import com.alacriti.model.SftpConfig;
-import com.alacriti.repo.SftpConfigRepo;
-import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class SftpDownloadService {
 
-	private static final Logger logger = LoggerFactory.getLogger(SftpDownloadService.class);
+	private final PGPEncryptionService pgpEncryptionService;
 
-	@Autowired
-	private SftpConfigRepo sftpConfigRepository;
+	public SftpDownloadService(PGPEncryptionService pgpEncryptionService) {
+		this.pgpEncryptionService = pgpEncryptionService;
+	}
 
-	@Autowired
-	private PGPDecryptor pgpDecryptor;
+	public void downloadAndDecryptByDate(SftpConfig config, String date, String downloadDir, String decryptedDir,
+			String privateKeyPath, String passphrase) throws Exception {
 
-	/**
-	 * Downloads all files containing today's date from SFTP,
-	 * then decrypts them into .ach files.
-	 */
-	public void downloadAndDecryptByDate(String clientKey, String downloadPath, InputStream privateKeyStream,
-			String passphrase) throws Exception {
+		List<File> downloadedFiles = downloadFilesFromSftp(config, date, downloadDir);
 
-		SftpConfig config = sftpConfigRepository.findByClientKey(clientKey)
-				.orElseThrow(() -> new RuntimeException("No SFTP config found for clientKey: " + clientKey));
+		if (downloadedFiles.isEmpty()) {
+			log.info("⚠️ No files found on SFTP for date {}", date);
+			return;
+		}
 
-		Session session = null;
-		ChannelSftp sftpChannel = null;
+		File decryptedFolder = new File(decryptedDir);
+		if (!decryptedFolder.exists())
+			decryptedFolder.mkdirs();
 
-		try {
-			logger.info("Connecting to SFTP for clientKey: {}", clientKey);
-			JSch jsch = new JSch();
-			session = jsch.getSession(config.getUsername(), config.getHost(), config.getPort());
-			session.setPassword(config.getPassword());
+		for (File encryptedFile : downloadedFiles) {
+			log.info("⬇️ Downloaded: {}", encryptedFile.getName());
 
-			Properties configProps = new Properties();
-			configProps.put("StrictHostKeyChecking", "no");
-			session.setConfig(configProps);
+			// Remove .pgp suffix for decrypted file
+			String decryptedFileName = encryptedFile.getName().endsWith(".pgp")
+					? encryptedFile.getName().substring(0, encryptedFile.getName().length() - 4)
+					: encryptedFile.getName();
 
-			session.connect();
-			logger.info("SFTP session connected for clientKey: {}", clientKey);
+			File decryptedFile = new File(decryptedFolder, decryptedFileName);
 
-			Channel channel = session.openChannel("sftp");
-			channel.connect();
-			sftpChannel = (ChannelSftp) channel;
+			try (InputStream keyStream = new ClassPathResource(privateKeyPath).getInputStream()) {
+				pgpEncryptionService.decryptACHFile(encryptedFile, decryptedFile, keyStream, passphrase);
 
-			sftpChannel.cd(config.getRemoteDirectory());
-			logger.info("Changed to remote directory: {}", config.getRemoteDirectory());
-
-			String today = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
-			logger.info("Looking for files containing date: {}", today);
-
-			Vector<ChannelSftp.LsEntry> files = sftpChannel.ls(".");
-			File downloadDir = new File(downloadPath);
-			if (!downloadDir.exists()) {
-				downloadDir.mkdirs();
-			}
-
-			boolean fileFound = false;
-
-			for (ChannelSftp.LsEntry entry : files) {
-				String fileName = entry.getFilename();
-				if (fileName.contains(today)) {
-					fileFound = true;
-					File destinationFile = new File(downloadDir, fileName);
-					try (OutputStream outputStream = new FileOutputStream(destinationFile)) {
-						sftpChannel.get(fileName, outputStream);
-						logger.info("File downloaded: {} -> {}", fileName, destinationFile.getAbsolutePath());
-					}
+				if (decryptedFile.length() > 0) {
+					log.info("✅ Successfully decrypted: {}", decryptedFile.getAbsolutePath());
+				} else {
+					log.warn("⚠️ Decrypted file is empty, skipping: {}", decryptedFile.getName());
+					decryptedFile.delete();
 				}
-			}
-
-			if (!fileFound) {
-				logger.warn("No files found containing date {} in directory {}", today, config.getRemoteDirectory());
-			} else {
-				// Call decryptor on downloaded folder
-				logger.info("Starting decryption of downloaded files...");
-				pgpDecryptor.decryptAllFiles(downloadDir, privateKeyStream, passphrase);
-				logger.info("Decryption process completed for all files.");
-			}
-
-		} finally {
-			if (sftpChannel != null && sftpChannel.isConnected()) {
-				sftpChannel.exit();
-				logger.info("SFTP channel exited.");
-			}
-			if (session != null && session.isConnected()) {
-				session.disconnect();
-				logger.info("SFTP session disconnected.");
+			} catch (Exception e) {
+				log.error("❌ Failed to decrypt file {}: {}", encryptedFile.getName(), e.getMessage());
 			}
 		}
+	}
+
+	private List<File> downloadFilesFromSftp(SftpConfig config, String date, String downloadDir) throws Exception {
+		List<File> downloadedFiles = new ArrayList<>();
+
+		JSch jsch = new JSch();
+		Session session = jsch.getSession(config.getUsername(), config.getHost(), config.getPort());
+		session.setPassword(config.getPassword());
+		session.setConfig("StrictHostKeyChecking", "no");
+		session.connect();
+
+		ChannelSftp sftp = (ChannelSftp) session.openChannel("sftp");
+		sftp.connect();
+
+		List<ChannelSftp.LsEntry> files = new ArrayList<>();
+		sftp.ls(config.getRemoteDirectory()).forEach(obj -> files.add((ChannelSftp.LsEntry) obj));
+
+		for (ChannelSftp.LsEntry entry : files) {
+			String fileName = entry.getFilename();
+
+			if (entry.getAttrs().isDir() || fileName.startsWith("."))
+				continue;
+
+			// Only download files containing today's date
+			if (!fileName.contains(date))
+				continue;
+
+			File localFile = new File(downloadDir, fileName);
+			try (FileOutputStream fos = new FileOutputStream(localFile)) {
+				sftp.get(config.getRemoteDirectory() + "/" + fileName, fos);
+			}
+
+			downloadedFiles.add(localFile);
+			log.info("⬇️ File downloaded from SFTP: {}", fileName);
+		}
+
+		sftp.disconnect();
+		session.disconnect();
+
+		return downloadedFiles;
 	}
 }

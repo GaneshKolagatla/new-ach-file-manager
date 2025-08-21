@@ -1,12 +1,12 @@
 package com.alacriti.controller;
 
 import java.io.File;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +26,8 @@ import com.alacriti.service.SftpDownloadService;
 @RequestMapping("/api/ach")
 public class ACHController {
 
+	private static final Logger log = LoggerFactory.getLogger(ACHController.class);
+
 	@Autowired
 	private ACHService achService;
 
@@ -37,20 +39,11 @@ public class ACHController {
 
 	@Autowired
 	private ACHFileProcessorService achFileProcessorService;
-	/*@Autowired
-	private PGPDecryptor encryptionService;
-	@Autowired
-	private FileEventLoggerService remoteFileLogService;*/
 
-	private static final String PRIVATE_KEY_PATH = "keys/private_key.asc"; // in resources
+	private static final String PRIVATE_KEY_PATH = "keys/private_key.asc";
 	private static final String DOWNLOAD_DIR = "target/download-ach";
-	//private static final String DECRYPTED_DIR= "target/decrypted-ach";
+	private static final String DECRYPTED_DIR = "target/decrypted-ach";
 	private static final String PASSPHRASE = "8823027374";
-
-	@SuppressWarnings("unused")
-	private static final String OUTPUT_DIR = "target/ach-files";
-	@SuppressWarnings("unused")
-	private static final String PUBLIC_KEY_PATH = "keys/public_key.asc"; // placed in src/main/resources/keys/
 
 	@PostMapping("/generate-ach")
 	public ResponseEntity<String> generateAchFile(@RequestBody ACHFileRequest request) {
@@ -67,36 +60,46 @@ public class ACHController {
 	@PostMapping("/download")
 	public String downloadAndDecryptACHFile(@RequestBody DownloadDto request) {
 		try {
-			// 1. Get SFTP config
 			SftpConfig config = repo.findByClientKey(request.getClient_key()).orElseThrow(
 					() -> new RuntimeException("SFTP config not found for client key: " + request.getClient_key()));
 
-			// 2. Ensure local download directory exists
 			Files.createDirectories(Paths.get(DOWNLOAD_DIR));
-			File downloadDir = new File(DOWNLOAD_DIR);
+			Files.createDirectories(Paths.get(DECRYPTED_DIR));
 
-			// 3. Download + Decrypt all files for today
-			try (InputStream privateKeyStream = new ClassPathResource(PRIVATE_KEY_PATH).getInputStream()) {
-				sftpDownloadService.downloadAndDecryptByDate(config.getClientKey(), DOWNLOAD_DIR, privateKeyStream,
-						PASSPHRASE);
-			}
+			// Use today's date automatically
+			String today = java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.BASIC_ISO_DATE);
 
-			// 4. Parse all decrypted ACH files
-			File[] decryptedFiles = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".ach"));
+			sftpDownloadService.downloadAndDecryptByDate(config, today, DOWNLOAD_DIR, DECRYPTED_DIR, PRIVATE_KEY_PATH,
+					PASSPHRASE);
+
+			File[] decryptedFiles = new File(DECRYPTED_DIR).listFiles(file -> file.isFile());
+
 			if (decryptedFiles == null || decryptedFiles.length == 0) {
-				return "No ACH files found after decryption.";
+				log.info("No ACH files found for today.");
+				return "No ACH files found for today.";
 			}
+
+			int processedCount = 0;
+			int skippedCount = 0;
 
 			for (File decryptedFile : decryptedFiles) {
-				achFileProcessorService.processACHFile(decryptedFile);
+				if (decryptedFile.getName().toLowerCase().endsWith(".ach") && decryptedFile.length() > 0) {
+					achFileProcessorService.processACHFile(decryptedFile);//error
+					log.info("✅ Processed file: {}", decryptedFile.getName());
+					processedCount++;
+				} else {
+					log.warn("⚠️ Skipped file: {}", decryptedFile.getName());
+					skippedCount++;
+				}
 			}
 
-			return "File(s) downloaded, decrypted, parsed, and logged successfully.";
+			return String.format("Today's files: %d processed and %d skipped due to empty content so that is all done.",
+					processedCount, skippedCount);
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Download/Decryption/Parsing failed: {}", e.getMessage());
 			return "Download/Decryption/Parsing failed: " + e.getMessage();
 		}
 	}
-
 }

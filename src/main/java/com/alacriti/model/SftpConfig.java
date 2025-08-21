@@ -17,26 +17,25 @@ import lombok.NoArgsConstructor;
 @Builder
 public class SftpConfig {
 
-    @Id
-    @Column(name = "client_key", nullable = false, unique = true)
-    private String clientKey;  // Unique identifier for each client (e.g., "abc_corp")
+	@Id
+	@Column(name = "client_key", nullable = false, unique = true)
+	private String clientKey;
 
-    @Column(name = "host", nullable = false)
-    private String host;
+	@Column(name = "host", nullable = false)
+	private String host;
 
-    @Column(name = "port", nullable = false)
-    private int port;
+	@Column(name = "port", nullable = false)
+	private int port;
 
-    @Column(name = "username", nullable = false)
-    private String username;
+	@Column(name = "username", nullable = false)
+	private String username;
 
-    @Column(name = "password", nullable = false)
-    private String password;
+	@Column(name = "password", nullable = false)
+	private String password;
 
-    @Column(name = "remote_directory", nullable = false)
-    private String remoteDirectory;
+	@Column(name = "remote_directory", nullable = false)
+	private String remoteDirectory;
 
-    @Column(name = "description")
-    private String description;  // Optional: for clarity (e.g., "Bank A SFTP")
-
+	@Column(name = "description")
+	private String description;
 }

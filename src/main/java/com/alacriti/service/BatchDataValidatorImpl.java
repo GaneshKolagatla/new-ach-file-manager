@@ -31,7 +31,7 @@ public class BatchDataValidatorImpl implements IBatchDataValidator {
 
 		if (file == null) {
 			log.error("Validation failed: ACHFile is null");
-			throw new ACHValidationException("ACHFile is null");
+			throw new ACHValidationException("ACHFile is null");//error
 		}
 		if (file.getFileHeader() == null) {
 			log.error("Validation failed: File header missing");

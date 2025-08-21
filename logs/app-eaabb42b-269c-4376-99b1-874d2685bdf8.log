@@ -1,0 +1,311 @@
+2025-08-21 14:25:41 [main] INFO  c.a.AlacritiAchGeneratorApplication - Starting AlacritiAchGeneratorApplication using Java 21.0.7 with PID 17869 (/home/vatsalyas/Documents/Spring-Boot/new-ach-file-manager/target/classes started by vatsalyas in /home/vatsalyas/Documents/Spring-Boot/new-ach-file-manager)
+2025-08-21 14:25:41 [main] DEBUG c.a.AlacritiAchGeneratorApplication - Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-08-21 14:25:41 [main] INFO  c.a.AlacritiAchGeneratorApplication - No active profile set, falling back to 1 default profile: "default"
+2025-08-21 14:25:42 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-21 14:25:42 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 115 ms. Found 7 JPA repository interfaces.
+2025-08-21 14:25:43 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-08-21 14:25:43 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-21 14:25:43 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-21 14:25:43 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-21 14:25:43 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1914 ms
+2025-08-21 14:25:43 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-21 14:25:43 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-21 14:25:43 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-21 14:25:43 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-21 14:25:43 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-21 14:25:44 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@54275b5d
+2025-08-21 14:25:44 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-21 14:25:44 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-21 14:25:44 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-21 14:25:45 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-21 14:25:46 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21 14:25:46 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-21 14:25:47 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-08-21 14:25:47 [main] INFO  c.a.AlacritiAchGeneratorApplication - Started AlacritiAchGeneratorApplication in 6.714 seconds (process running for 7.491)
+2025-08-21 14:25:56 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-21 14:25:56 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-21 14:25:56 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-08-21 14:25:56 [http-nio-8080-exec-1] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2025-08-21 14:26:05 [http-nio-8080-exec-2] INFO  c.a.service.SftpDownloadService - ⬇️ File downloaded from SFTP: BankofAmerica_876543210_20250821.ach.pgp
+2025-08-21 14:26:05 [http-nio-8080-exec-2] INFO  c.a.service.SftpDownloadService - ⬇️ File downloaded from SFTP: WellsFargo_765432109_20250821.ach.pgp
+2025-08-21 14:26:05 [http-nio-8080-exec-2] INFO  c.a.service.SftpDownloadService - ⬇️ Downloaded: BankofAmerica_876543210_20250821.ach.pgp
+2025-08-21 14:26:06 [http-nio-8080-exec-2] INFO  c.a.service.SftpDownloadService - ✅ Successfully decrypted: /home/vatsalyas/Documents/Spring-Boot/new-ach-file-manager/target/decrypted-ach/BankofAmerica_876543210_20250821.ach
+2025-08-21 14:26:06 [http-nio-8080-exec-2] INFO  c.a.service.SftpDownloadService - ⬇️ Downloaded: WellsFargo_765432109_20250821.ach.pgp
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.SftpDownloadService - ✅ Successfully decrypted: /home/vatsalyas/Documents/Spring-Boot/new-ach-file-manager/target/decrypted-ach/WellsFargo_765432109_20250821.ach
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Starting ACH processing for file: /home/vatsalyas/Documents/Spring-Boot/new-ach-file-manager/target/decrypted-ach/WellsFargo_765432109_20250821.ach (size: 2850 bytes)
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - File header parsed successfully
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Parsing batch header line: 5220BrightEnergy CorUTILITY BILL        3344556677PPDCOLLECT   250821250823   1345678900000001
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Parsed SEC code: 'PPD'
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Batch header created successfully with SEC: PPD
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ Created batch with SEC code: PPD
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ Added batch to file - Total batches: 1
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Parsing batch header line: 5220BrightEnergy CorREFUND              3344556677PPDREFUND    250821250823   1345678900000002
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Parsed SEC code: 'PPD'
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Batch header created successfully with SEC: PPD
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ Created batch with SEC code: PPD
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ Added batch to file - Total batches: 2
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Parsing batch header line: 5220BrightEnergy CorVENDOR PAYMENT      3344556677CCDVEND PAY  250821250824   1345678900000003
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Parsed SEC code: 'CCD'
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Batch header created successfully with SEC: CCD
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ Created batch with SEC code: CCD
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ Added batch to file - Total batches: 3
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Parsing batch header line: 5220BrightEnergy CorPAYROLL             3344556677PPDSALARY    250821250825   1345678900000004
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Parsed SEC code: 'PPD'
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Batch header created successfully with SEC: PPD
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ Created batch with SEC code: PPD
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ Added batch to file - Total batches: 4
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ File control parsed successfully
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ File control parsed successfully
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ File control parsed successfully
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ File control parsed successfully
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ File control parsed successfully
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - 📊 Total batches parsed: 4
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - ✅ File parsing successful for validation
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - 🔍 Starting ACH file validation...
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - ✅ File header validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - Found 4 batches to validate
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating batch 1 with SEC code: PPD
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Batch 1 header is valid
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - Batch 1 header validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 1 of batch 1
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 1 validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 2 of batch 1
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 2 validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 3 of batch 1
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 3 validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 4 of batch 1
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 4 validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - Batch 1 entries validation passed (4 entries)
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating batch 2 with SEC code: PPD
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Batch 2 header is valid
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - Batch 2 header validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 1 of batch 2
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 1 validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 2 of batch 2
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 2 validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 3 of batch 2
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 3 validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 4 of batch 2
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 4 validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - Batch 2 entries validation passed (4 entries)
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating batch 3 with SEC code: CCD
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Batch 3 header is valid
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - Batch 3 header validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 1 of batch 3
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 1 validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 2 of batch 3
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 2 validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 3 of batch 3
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 3 validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 4 of batch 3
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 4 validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - Batch 3 entries validation passed (4 entries)
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating batch 4 with SEC code: PPD
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Batch 4 header is valid
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - Batch 4 header validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 1 of batch 4
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 1 validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 2 of batch 4
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 2 validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 3 of batch 4
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 3 validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 4 of batch 4
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 4 validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - Batch 4 entries validation passed (4 entries)
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - ✅ File control validation passed
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - 🎉 All validations completed successfully!
+2025-08-21 14:26:07 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - ✅ Validation successful for file: WellsFargo_765432109_20250821.ach
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved FileHeader (id=14) at line 1
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved BatchHeader (id=39) at line 2
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=167) at line 3
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=168) at line 4
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=169) at line 5
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=170) at line 6
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Processed batch control at line 7
+2025-08-21 14:26:07 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved BatchHeader (id=40) at line 8
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=171) at line 9
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=172) at line 10
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=173) at line 11
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=174) at line 12
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Processed batch control at line 13
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved BatchHeader (id=41) at line 14
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=175) at line 15
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=176) at line 16
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=177) at line 17
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=178) at line 18
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Processed batch control at line 19
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved BatchHeader (id=42) at line 20
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=179) at line 21
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=180) at line 22
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=181) at line 23
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=182) at line 24
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Processed batch control at line 25
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved FileSummary (id=10) at line 26
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Skipping padding line 27 for record type 9
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Skipping padding line 28 for record type 9
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Skipping padding line 29 for record type 9
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Skipping padding line 30 for record type 9
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - 📊 Database persistence summary for WellsFargo_765432109_20250821.ach: FileHeaders=1, BatchHeaders=4, EntryDetails=16
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - ✅ Database persistence completed for file: WellsFargo_765432109_20250821.ach
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.alacriti.controller.ACHController - ✅ Processed file: WellsFargo_765432109_20250821.ach
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - Starting ACH processing for file: /home/vatsalyas/Documents/Spring-Boot/new-ach-file-manager/target/decrypted-ach/BankofAmerica_876543210_20250821.ach (size: 2850 bytes)
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - File header parsed successfully
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Parsing batch header line: 5220FastCart LLC    CUSTOMER REFUND     2233445566PPDREFUND    250821250823   1234567890000001
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Parsed SEC code: 'PPD'
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Batch header created successfully with SEC: PPD
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ Created batch with SEC code: PPD
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ Added batch to file - Total batches: 1
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Parsing batch header line: 5220FastCart LLC    SELLER PAYOUT       2233445566CCDSELLER PAY250821250823   1234567890000002
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Parsed SEC code: 'CCD'
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Batch header created successfully with SEC: CCD
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ Created batch with SEC code: CCD
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ Added batch to file - Total batches: 2
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Parsing batch header line: 5220FastCart LLC    MARKETING PAY       2233445566CCDMARKETING 250821250824   1234567890000003
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Parsed SEC code: 'CCD'
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Batch header created successfully with SEC: CCD
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ Created batch with SEC code: CCD
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ Added batch to file - Total batches: 3
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Parsing batch header line: 5220FastCart LLC    VENDOR PAYMENT      2233445566CCDVENDOR PAY250821250825   1234567890000004
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Parsed SEC code: 'CCD'
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Batch header created successfully with SEC: CCD
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ Created batch with SEC code: CCD
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataReaderImpl - Added entry detail to current batch
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ Added batch to file - Total batches: 4
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ File control parsed successfully
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ File control parsed successfully
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ File control parsed successfully
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ File control parsed successfully
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - ✅ File control parsed successfully
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataReaderImpl - 📊 Total batches parsed: 4
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - ✅ File parsing successful for validation
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - 🔍 Starting ACH file validation...
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - ✅ File header validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - Found 4 batches to validate
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating batch 1 with SEC code: PPD
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Batch 1 header is valid
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - Batch 1 header validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 1 of batch 1
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 1 validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 2 of batch 1
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 2 validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 3 of batch 1
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 3 validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 4 of batch 1
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 4 validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - Batch 1 entries validation passed (4 entries)
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating batch 2 with SEC code: CCD
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Batch 2 header is valid
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - Batch 2 header validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 1 of batch 2
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 1 validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 2 of batch 2
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 2 validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 3 of batch 2
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 3 validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 4 of batch 2
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 4 validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - Batch 2 entries validation passed (4 entries)
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating batch 3 with SEC code: CCD
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Batch 3 header is valid
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - Batch 3 header validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 1 of batch 3
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 1 validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 2 of batch 3
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 2 validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 3 of batch 3
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 3 validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 4 of batch 3
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 4 validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - Batch 3 entries validation passed (4 entries)
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating batch 4 with SEC code: CCD
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Batch 4 header is valid
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - Batch 4 header validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 1 of batch 4
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 1 validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 2 of batch 4
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 2 validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 3 of batch 4
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 3 validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Validating entry 4 of batch 4
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.BatchDataValidatorImpl - Entry 4 validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - Batch 4 entries validation passed (4 entries)
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - ✅ File control validation passed
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.BatchDataValidatorImpl - 🎉 All validations completed successfully!
+2025-08-21 14:26:08 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - ✅ Validation successful for file: BankofAmerica_876543210_20250821.ach
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved FileHeader (id=15) at line 1
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved BatchHeader (id=43) at line 2
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=183) at line 3
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=184) at line 4
+2025-08-21 14:26:08 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=185) at line 5
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=186) at line 6
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Processed batch control at line 7
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved BatchHeader (id=44) at line 8
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=187) at line 9
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=188) at line 10
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=189) at line 11
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=190) at line 12
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Processed batch control at line 13
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved BatchHeader (id=45) at line 14
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=191) at line 15
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=192) at line 16
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=193) at line 17
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=194) at line 18
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Processed batch control at line 19
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved BatchHeader (id=46) at line 20
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=195) at line 21
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=196) at line 22
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=197) at line 23
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved EntryDetail (id=198) at line 24
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Processed batch control at line 25
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Saved FileSummary (id=11) at line 26
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Skipping padding line 27 for record type 9
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Skipping padding line 28 for record type 9
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Skipping padding line 29 for record type 9
+2025-08-21 14:26:09 [http-nio-8080-exec-2] DEBUG c.a.service.ACHFileProcessorService - Skipping padding line 30 for record type 9
+2025-08-21 14:26:09 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - 📊 Database persistence summary for BankofAmerica_876543210_20250821.ach: FileHeaders=1, BatchHeaders=4, EntryDetails=16
+2025-08-21 14:26:09 [http-nio-8080-exec-2] INFO  c.a.service.ACHFileProcessorService - ✅ Database persistence completed for file: BankofAmerica_876543210_20250821.ach
+2025-08-21 14:26:09 [http-nio-8080-exec-2] INFO  c.alacriti.controller.ACHController - ✅ Processed file: BankofAmerica_876543210_20250821.ach
+2025-08-21 14:27:04 [RMI TCP Connection(5)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2025-08-21 14:27:04 [RMI TCP Connection(5)-127.0.0.1] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-21 14:27:04 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-08-21 14:27:04 [RMI TCP Connection(5)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21 14:27:04 [RMI TCP Connection(5)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-21 14:27:04 [RMI TCP Connection(5)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
